@@ -99,6 +99,7 @@ plt.xlabel('epochs')
 plt.legend(loc='upper right')
 plt.show()
 
+
 # テストデータの目的変数を予測
 y_test_pred = model.predict(X_test)
 y_test_pred = scaler_y.inverse_transform(y_test_pred)
