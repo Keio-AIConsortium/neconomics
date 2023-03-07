@@ -59,8 +59,8 @@ X_train_0 = scaler_X.fit_transform(X_train_0)
 X_test_0 = scaler_X.transform(X_test_0)
 
 # モデル構築用にデータを再構成（サンプル数、タイムステップ, 特徴量数）
-X_train = np.reshape(X_train_0, (X_train_0.shape[0],1,X_train_0.shape[1]))
-X_test = np.reshape(X_test_0, (X_test_0.shape[0],1,X_test_0.shape[1]))
+X_train = np.reshape(X_train_0, (X_train_0.shape[0],X_train_0.shape[1],1))
+X_test = np.reshape(X_test_0, (X_test_0.shape[0],X_test_0.shape[1],1))
 print('X_train:',X_train.shape) #確認
 print('X_test:',X_test.shape) #確認
 
@@ -96,3 +96,23 @@ plt.ylabel('loss')
 plt.xlabel('epochs')
 plt.legend(loc='upper right')
 plt.show()
+
+# テストデータの目的変数を予測
+y_test_pred = model.predict(X_test)
+y_test_pred = scaler_y.inverse_transform(y_test_pred)
+# テストデータの目的変数と予測結果を結合
+df_test = pd.DataFrame(np.hstack((y_test,y_test_pred)),
+                       columns=['y','Predict'])
+# 指標出力
+print('RMSE:')
+print(np.sqrt(mean_squared_error(y_test, y_test_pred)))
+print('MAE:')
+print(mean_absolute_error(y_test, y_test_pred)) 
+print('MAPE:')
+print(mean_absolute_percentage_error(y_test, y_test_pred)) 
+# グラフ化
+# df_test.plot(kind='line')
+plt.figure()
+df_test.plot(kind='line')
+plt.savefig('pandas_iris_line.png')
+plt.close('all')
