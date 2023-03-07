@@ -17,7 +17,7 @@ plt.rcParams['figure.figsize'] = [12, 9] # グラフサイズ
 #
 # データセット読み込み
 #
-url = 'https://www.salesanalytics.co.jp/bgr8'
+url = 'petrol_price_for_lstm.csv'
 df = pd.read_csv(url)
 #
 # 前処理
@@ -35,8 +35,9 @@ def gen_dataset(dataset, lag_max):
         y.append(dataset[a, 0])   #目的変数
     return np.array(X), np.array(y)
 ## 分析用データセットの生成
-lag_max = 365
+lag_max = 150
 X, y = gen_dataset(dataset, lag_max)
+
 #
 # データ分割
 #
@@ -57,6 +58,7 @@ y_train = scaler_y.fit_transform(y_train)
 scaler_X = MinMaxScaler(feature_range=(0, 1))
 X_train_0 = scaler_X.fit_transform(X_train_0)
 X_test_0 = scaler_X.transform(X_test_0)
+
 
 # モデル構築用にデータを再構成（サンプル数、タイムステップ, 特徴量数）
 X_train = np.reshape(X_train_0, (X_train_0.shape[0],X_train_0.shape[1],1))
