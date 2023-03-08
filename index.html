@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/autoloader/prism-autoloader.min.js"></script>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>TOTALLY</title>
-    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
+    <title>Neconomics</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
@@ -12,26 +15,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap">
   </head>
 
+  
   <body>
     <header id="header">
       <div class="site-title">
-        <a href="index.html"><img src="img/logo.svg" alt="TOTALLY"></a>
+        <a href="index.html"><img src="logo.png" alt="Neconomics"></a>
       </div>
 
-      <nav class="wrapper">
-        <ul class="menu">
-          <li><a href="#">ALL</a></li>
-          <li><a href="#">NEW</a></li>
-          <li><a href="#">VINTAGE</a></li>
-          <li><a href="#">CATEGORY</a></li>
-          <li><a href="#">LOOKBOOK</a></li>
-          <li><a href="#">BLOG</a></li>
-        </ul>
-        <ul class="login">
-          <li><a href="#">LOGIN</a></li>
-          <li><a href="#">CONTACT</a></li>
-        </ul>
-      </nav>
+      
     </header>
 
     <main>
@@ -41,101 +32,284 @@
         </div>
 
         <div class="item-info">
-          <h1 class="item-title">TOTALLY Short Sleeve Shirt</h1>
+          <h1 class="item-title">はじめに</h1>
           <p>
-            テキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキストテキストテキストテキストテキスト
-            テキストテキストテキスト
+            - スマートフォンの普及や情報処理技術の発達によって、個人や企業などが膨大な量のデータを蓄積できるようになったため、そのような膨大なデータ（ビッグデータ）をうまく活用できれば、新たな価値を生み出すことができる。
+ビッグデータを活用して有益な知見を見出すことができる手法を紹介していく。<br>
+また、サイトを訪れることでデータ分析の手法を身に付け、その後も参照ができるように、アーカイブ的なサイトを目指し制作した。</p>
+          <h1 class="item-title">目次</h1>
+          <p>
+            <a href="#title1">・なぜ解析にPythonを使うのか</a><br>
+            <a href="#title2">・EDA（探索的データ解析）について</a><br>
+            <a href="#title3">・分析</a><br>
+            <a href="#title4">・重回帰分析</a><br>
+            <a href="#title5">・LSTMについて</a><br>
+            <a href="#title6">・まとめ</a><br>
+
           </p>
+          <h1 class="item-title">
+            <a name="title1">なぜ解析にPythonを使うのか</a>
+          </h1>
+          <p>Pythonは、幅広い用途で利用されているプログラミング言語であり、
+          簡潔な文法、豊富なライブラリなどが特徴である。初心者にも扱いやすく、かつ様々な応用が利く言語といえる。<br>
+          データ分析を支援するようなライブラリが豊富であるため、Pythonは汎用型の言語でありながらデータ分析の分野でよく用いられる。この言語を身に着けることができたら、自信での活用の幅も広がるだろう。</p>
+          <h1 class="item-title">
+            <a name="title2">EDA（探索的データ解析）について</a>
+          </h1>
+          <p>EDAとは、Explanatory Data Analysisの略で、日本語では「探索的データ分析」と訳される。<br>
+          データの特徴を把握し、構造を理解することを目的に行うもので、パターンの発見、異常の特定、仮説のテスト、前提条件の確認などが行われる。
+          利用するデータの中身を理解したり、分析の方針を決める上でとても重要な作業なので、データ分析においては欠かせないものとなっている。
+          具体的には、データの確認（データ数・カラム・欠損値の確認など）、基本統計量の確認、相関関係の確認、データの可視化を行うものである。</p>
+          <h1 class="item-title">
+            <a name="title3">分析</a>
+          </h1>
+          <p>レギュラーガソリン価格について、関連すると考えられる、原油価格、月中平均為替相場、C重油価格、輸入物価指数を用いて分析していく<br>
+            ここで、openpyxl、およびpandasというライブラリをもちいて、csvデータをインポートし、データフレームにした。<br>
+            corrメソッドを用いて、それぞれのデータ同士の相関係数を表示した。相関係数は二つのデータ間の相関関係の強さを表す指標で、-1から+1までの値をとる。値が+1に近いほど両者の間に「正の相関がある」と言え、-1に近いほど「負の相関がある」と言える。
 
-          <p>￥9,999 +tax</p>
+この分析の結果、「輸入物価指数（原油）」と「c重油価格」の間にはとても強い正の相関がある一方で「月中平均為替相場」と「レギュラーガソリン価格」との間にはあまり強い相関関係がないといえることが分かった。
+<br> 次にdescribeメソッドをもちいて、各種基本統計量を表の形で表示させた。ここでは、上から「要素の個数」、「算術平均」、「標準偏差」、「最小値」、「第一四分位数」、「中央値」、「第三四分位数」、「最大値」が表示される。
 
-          <table class="order-table">
-            <thead>
-              <tr>
-                <th class="color">Color</th>
-                <th class="size">Size</th>
-                <th class="quantity"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>White</td>
-                <td>S</td>
-                <td>
-                  <select name="quantity_s">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>White</td>
-                <td>M</td>
-                <td>
-                  <select name="quantity_m">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>White</td>
-                <td>L</td>
-                <td>
-                  <select name="quantity_l">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+基本統計量を確認することは、データの特徴を把握する上でとても重要である。例えば「輸入物価指数（b重油・c重油）」のデータについて、平均値と最大値を見てみるとおよそ４倍程度の差があることが分かった。データ全体から見てあまりにもかけ離れた値をとるデータを含めることは、統計分析を行う上で好ましくない場合があるため、そのようなデータについては標準偏差などを用いてそれが「外れ値」であるかを判断し、場合によってはそのデータを除外する必要がある。 <br>
+これらの統計量を可視化し、ヒストグラムを表示させるライブラリを利用した結果、図のような散布図が得られた。相関関係についてはかなり如実に表れていることが可視化できた。 
+    </p><br>
+    <img src="散布図上部.png" alt="得られたヒストグラム">
+    <img src="散布図下部.png" alt="得られたヒストグラム">
+    <h1 class="item-title">
+      <a name="title4">重回帰分析</a>
+    </h1>
+          <p>EDAで得られたデータをもとに解析方法を選択していくが、今回は、日付を除いたすべてのデータが量的データであることなどを鑑みて、重回帰分析とLSTMの二つの手法を用いた分析を行っていく。<br>
+             重回帰分析とは、ある一つの目的変数に対して複数の説明変数があるとき、それら説明変数のうちどの変数がどの程度の影響を、目的変数に対して及ぼしているのかを測る分析手法である。今回の場合は、目的変数が「レギュラーガソリン価格」、説明変数がそれ以外のデータという風に設定した。
+          </p>
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
-          <a class="cart-btn" href="#">ADD TO CART</a>
+<!-- Line Number-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
 
-          <table class="size-table">
-            <thead>
-              <tr>
-                <th class="size">Size</th>
-                <th class="chest">Chest</th>
-                <th class="weist">Weist</th>
-                <th class="height">Height</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>S</th>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-              </tr>
-              <tr>
-                <th>M</th>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-              </tr>
-              <tr>
-                <th>L</th>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-                <td>99 ～ 99</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<!-- Line HighLight-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/line-highlight/prism-line-highlight.min.css" rel="stylesheet" />
+
+<!-- Unescaped Markup-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.0/plugins/unescaped-markup/prism-unescaped-markup.min.css" rel="stylesheet" />
+
+<script type="text/plain" class="language-html line-numbers" data-line="1,2">
+import statsmodels.api as sm
+exp_cols = ['原油価格($/bbl)', '月中平均為替相場（USD/JPY）','c重油価格(\/kL)', '輸入物価指数（b重油・c重油）', '輸入物価指数（原油）']
+target_col = ["レギュラーガソリン価格(\/L)"]    #説明変数・目的変数を設定
+X = petrol[exp_cols]
+X = sm.add_constant(X)
+Y = petrol[target_col]
+
+model = sm.OLS(Y, X)
+result = model.fit()
+
+result.summary()    #重回帰分析の結果を表示
+
+</script>
+<p>ここでは、statsmodelsという統計計算のライブラリを用いて分析を行った。Xに説明変数のデータ、Yに目的変数のデータを代入していくが、現状では回帰式のy切片が0の状態のため、正しい結果が出力されない。そこでsm.add_constant()関数を用いて、説明変数の行列に対してすべての値が1の列を追加する必要がある。<br>
+
+  次に、普通の最小二乗法を用いるsm.OLS()関数の第一引数に目的変数、第二変数に説明変数を渡した。これで分析のモデルは完成したので、これをfit()関数で学習させ、summary()関数で結果を出力した。</p>
+<img src="summary.png" alt="得られた結果">
+<p>
+  するとこのような内容が表示された。一番上のグループでは、決定係数やF値といったモデルの特性についての情報などが表示されている。真ん中のグループには回帰係数や、それぞれのt値p値などの情報が表示されている。一番下のグループには誤差項に関する情報が表示されている。決定係数の値が大きいことからこのモデルはある程度精度の高いものであるといえ、また、回帰係数の値から、輸入物価指数（原油）が最もガソリン価格に影響を与えるという風に考えることができる。<br>
+  <br>
+  次は別のライブラリを用いて解析を行った。
+
+<br>
+<script type="text/plain" class="language-html line-numbers" data-line="1,2">
+from sklearn.linear_model import LinearRegression   #scikit-learnを用いて重回帰分析
+from sklearn.metrics import r2_score
+
+X = petrol[exp_cols]
+Y = petrol[target_col]
+
+lr = LinearRegression()
+lr.fit(X,Y)
+pd.DataFrame(lr.coef_,columns=exp_cols).T   #相関式における各係数を表示
+  
+  </script>
+  <img src="重回帰分析表.png" alt="結果">
+  <p>scikit-learnという機械学習ライブラリから、linear_modelのLinearRegressionモデルと、metircsのr2_scoreをそれぞれインポートし、先ほどと同様に変数に目的変数・説明変数を代入して、それらを用いて重回帰分析を行っていく。得られる結果についてデータフレームにして出力したものが上の表になる。ここでは各説明変数それぞれの回帰係数が表示されており、先ほどの結果と同じ値であることが分かる。</p>
+</p>
+<script type="text/plain" class="language-html line-numbers" data-line="1,2">
+  Y_pred = lr.predict(X)
+r2_score(Y, Y_pred) #予測値と実際の値を比較し、決定係数を算出
+
+#0.7720092050546818
+    
+    </script>
+    <p>次にpredict()関数を用いモデルから予測される値を算出し、それと実際の値をr2_score()関数の引数に渡すことで、決定係数を算出した。得られた決定係数はおよそ0.772となり、これは先ほどの結果とも一致していることが分かる。</p>
+    <img src="コードと散布図結果.png" alt="散布図">
+    <p>最後に、予測値と実際の値について比較した散布図を出力してみた。seabornのscatterplot()を用いて出力するが、ここで引数に渡すデータについて、values.flatten()で値を取得し一次元の配列に直すことで、散布図で出力する際適切なデータ形式に成形している。出力された図について、x軸が実際の値、y軸が予測された値となっており、ある程度正確な予測ができていることが分かる</p>
+          <h1 class="item-title"><a name="title5">LSTM</a></h1>
+          <p>- 概要<br>
+            - kerasライブラリでLSTMレイヤを追加し学習をおこなった。<br>
+        - LSTMとは<br>
+            - RNN(Recurrent Neural Network)の一種。
+        - 実装<br>
+            - 準備</p>
+            <script type="text/plain" class="language-html line-numbers" data-line="1,2">
+              #
+# 必要なライブラリーの読み込み
+#
+import numpy as np
+import pandas as pd
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import *
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.utils import plot_model
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_percentage_error
+import matplotlib.pyplot as plt
+plt.style.use('ggplot') #グラフスタイル
+plt.rcParams['figure.figsize'] = [12, 9] # グラフサイズ
+            </script>
+<p>
+  pandasはデータ分析に役立つライブラリ。機械学習において、データの準備に役立つ。tensorflowとkerasについては理解があまり十分でない。前者がフレームワークで後者がライブラリという認識。
+<br>
+データの用意</p>
+<script type="text/plain" class="language-html line-numbers" data-line="1,2">
+  #
+# データセット読み込み
+#
+url = 'petrol_price_for_lstm.csv'
+df = pd.read_csv(url)
+#
+# 前処理
+#
+## 変換
+dataset = df.y.values #NumPy配列へ変換
+dataset = dataset.astype('float32')    #実数型へ変換
+dataset = np.reshape(dataset, (-1, 1)) #1次元配列を2次元配列へ変換
+## ラグ付きデータセット生成関数
+def gen_dataset(dataset, lag_max):
+    X, y = [], []
+    for i in range(len(dataset) - lag_max):
+        a = i + lag_max
+        X.append(dataset[i:a, 0]) #ラグ変数
+        y.append(dataset[a, 0])   #目的変数
+    return np.array(X), np.array(y)
+## 分析用データセットの生成
+lag_max = 150
+X, y = gen_dataset(dataset, lag_max)
+
+#
+# データ分割
+#
+test_length = 30 #テストデータの期間
+X_train_0 = X[:-test_length,:] #学習データ
+X_test_0 = X[-test_length:,:]  #テストデータ
+y_train_0 = y[:-test_length] #学習データ
+y_test_0 = y[-test_length:]  #テストデータ
+y_train = y_train_0.reshape(-1,1)
+y_test = y_test_0.reshape(-1,1)
+#
+# 正規化（0-1の範囲にスケーリング）
+#
+## 目的変数y
+scaler_y = MinMaxScaler(feature_range=(0, 1))
+y_train = scaler_y.fit_transform(y_train)
+## 説明変数X
+scaler_X = MinMaxScaler(feature_range=(0, 1))
+X_train_0 = scaler_X.fit_transform(X_train_0)
+X_test_0 = scaler_X.transform(X_test_0)
+
+
+# モデル構築用にデータを再構成（サンプル数、タイムステップ, 特徴量数）
+X_train = np.reshape(X_train_0, (X_train_0.shape[0],X_train_0.shape[1],1))
+X_test = np.reshape(X_test_0, (X_test_0.shape[0],X_test_0.shape[1],1))
+print('X_train:',X_train.shape) #確認
+print('X_test:',X_test.shape) #確認
+</script>
+<p>pandasライブラリのread_csv()を用いてcsvファイルを読み込んでいる。petrol_price.csvをpetrol_price_for_lstm.csvに編集し直した。dsとyの二つの項目があり、yはガソリン価格。gen_dataset()でデータにラグを作った。今回、説明変数Xと目的変数Yはガソリン価格であり、Xはひとつ前のガソリン価格をしようしている。学習データとテストデータに分けて、モデル構築のためのデータに再編成して、データの準備は完了。
+<br>
+  - モデル作成</p>
+  <script type="text/plain" class="language-html line-numbers" data-line="1,2">
+    # モデル定義
+model = Sequential()
+model.add(LSTM(300,input_shape=(X_train.shape[1], X_train.shape[2])))
+model.add(Dropout(0.2))
+model.add(Dense(1, activation='linear'))
+# コンパイル
+model.compile(loss='mean_squared_error', optimizer='adam')
+# モデルの視覚化
+plot_model(model,show_shapes=True)
+  </script>
+  <p>LSTMの層を追加し、20%の確率でデータを弾き過学習を防ぐDropout層を追加し、中間層を一つの層にするDense層を追加した。</p>
+  <img src="model.png" alt="図">
+  <p>-学習</p>
+  <script type="text/plain" class="language-html line-numbers" data-line="1,2">
+    # EaelyStoppingの設定
+early_stopping =  EarlyStopping(monitor='val_loss',
+                                min_delta=0.0,
+                                patience=2)
+# 学習の実行
+history = model.fit(X_train, y_train,
+                    epochs=1000,
+                    batch_size=128,
+                    validation_split=0.2,
+                    callbacks=[early_stopping] ,
+                    verbose=1, 
+                    shuffle=False)
+# 学習結果の出力
+model.summary()
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='valid Loss')
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epochs')
+plt.legend(loc='upper right')
+plt.show()
+  </script>
+  <p>
+    実際に学習し学習結果を出力させた。
+  </p>
+  <img src="学習結果.png" alt="図">
+  <p>
+    -テスト
+  </p>
+  <script type="text/plain" class="language-html line-numbers" data-line="1,2">
+  # テストデータの目的変数を予測
+y_test_pred = model.predict(X_test)
+y_test_pred = scaler_y.inverse_transform(y_test_pred)
+# テストデータの目的変数と予測結果を結合
+df_test = pd.DataFrame(np.hstack((y_test,y_test_pred)),
+                       columns=['y','Predict'])
+# 指標出力
+print('RMSE:')
+print(np.sqrt(mean_squared_error(y_test, y_test_pred)))
+print('MAE:')
+print(mean_absolute_error(y_test, y_test_pred)) 
+print('MAPE:')
+print(mean_absolute_percentage_error(y_test, y_test_pred)) 
+# グラフ化
+# df_test.plot(kind='line')
+plt.figure()
+df_test.plot(kind='line')
+plt.savefig('pandas_iris_line.png')
+plt.close('all')
+</script>
+<p>
+  予測とテストデータを比較し、結果を出力した。
+</p>
+<img src="結果比較グラフ.png" alt="図">
+
+          <h1 class="item-title"><a name="title6">まとめ</a></h1>
+          <p>・ある程度納得のいく結果が得られた。<br>
+          ・今回は分析手法として重回帰分析とLSTMの二つを用いたが、データを変えて別の手法にも挑戦してみたい。<br>
+        </p>
       </div>
     </main>
 
     <footer id="footer" class="wrapper">
-      <p class="copyright">&copy; TOTALLY</p>
+      <p class="copyright">&copy; Neconomics</p>
     </footer>
   </body>
 </html>
